@@ -24,6 +24,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* --------------------------------------------- */
     Route::get('/admin/login', 'ControladorLogin@index');
     Route::get('/admin/logout', 'ControladorLogin@logout');
+    Route::get('/logout', 'ControladorLogin@logout');
     Route::post('/admin/logout', 'ControladorLogin@entrar');
     Route::post('/admin/login', 'ControladorLogin@entrar');
 
