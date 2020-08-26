@@ -9,12 +9,12 @@
 @endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="/sistema/menu">Men&uacute;</a></li>
+    <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="/admin/sistema/menu">Men&uacute;</a></li>
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/sistema/menu/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/menu/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     <li class="btn-item"><a title="Guardar" href="#" class="fa fa-trash-o" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a>
@@ -47,12 +47,13 @@ if (isset($msg)) {
                 <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
                 <div class="form-group col-lg-6">
                     <label>Nombre: *</label>
-                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$menu->nombre or ''}}" required>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Men&uacute; padre:</label>
                     <select id="lstMenuPadre" name="lstMenuPadre" class="form-control">
                         <option selected value="0">-</option>
+
                         @for ($i = 0; $i < count($array_menu); $i++)
                             @if (isset($menu) and $array_menu[$i]->idmenu == $menu->id_padre)
                                 <option selected value="{{ $array_menu[$i]->idmenu }}">{{ $array_menu[$i]->nombre }}</option>
@@ -60,6 +61,7 @@ if (isset($msg)) {
                                 <option value="{{ $array_menu[$i]->idmenu }}">{{ $array_menu[$i]->nombre }}</option>
                             @endif
                         @endfor
+                        
                     </select>
                 </div>
                 <div class="form-group col-lg-6">
@@ -144,7 +146,7 @@ if (isset($msg)) {
     function eliminar() {
         $.ajax({
             type: "GET",
-            url: "{{ asset('sistema/menu/eliminar') }}",
+            url: "{{ asset('admin/sistema/menu/eliminar') }}",
             data: { id:globalId },
             async: true,
             dataType: "json",

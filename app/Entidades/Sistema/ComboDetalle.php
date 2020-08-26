@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Categoria
+class ComboDetalle
 {
-    protected $table = 'categorias';
+    protected $table = 'combo_detalle';
     public $timestamps = false;
 
     protected $fillable = [
-        'idmenu', 'nombre', 'fk_idcategoria'
+        'fk_idcombo', 'fk_idproducto'
     ];
 
     protected $hidden = [
@@ -20,10 +20,8 @@ class Categoria
     ];
 
     function cargarDesdeRequest($request) {
-        $this->idcategoria = $request->input('id')!="0" ? $request->input('id') : $this->idmenu;
-        $this->nombre = $request->input('txtNombre');
-        $this->fk_idcategoria = $request->input('id');
-
+        $this->fk_idcombo = $request->input('id')!="0" ? $request->input('id') : $this->fk_idcombo;
+        $this->fk_idproducto = $request->input('txtIdProducto');
     }
 
     public function obtenerFiltrado() {
@@ -60,12 +58,9 @@ class Categoria
 
     public function obtenerTodos() {
         $sql = "SELECT 
-                  A.idcategoria,
-                  A.nombre,
-                  A.fk_idcategoria
-                FROM categorias A";
-
-        $sql .= " ORDER BY A.nombre";
+                  A.fk_idcombo,
+                  A.fk_idproducto
+                FROM combo_detalle A ORDER BY A.fk_idproducto";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
@@ -98,48 +93,45 @@ class Categoria
         return $resultado;
     }
 
-    public function obtenerPorId($idmenu) {
+    public function obtenerPorId($fk_idcombo) {
         $sql = "SELECT
-                idcategoria,
-                nombre,
-                fk_idcategoria
-                FROM categorias WHERE idcategoria = '$idcategoria'";
+                fk_idcombo,
+                fk_idproducto
+                FROM combo_detalle WHERE fk_idcombo = '$fk_idcombo'";
         $lstRetorno = DB::select($sql);
 
         if(count($lstRetorno)>0){
-            $this->idcategoria = $lstRetorno[0]->idcategoria;
-            $this->nombre = $lstRetorno[0]->nombre;
-            $this->fk_idcategoria = $lstRetorno[0]->fk_idcategoria;
+            $this->fk_idcombo = $lstRetorno[0]->fk_idcombo;
+            $this->fk_idproducto = $lstRetorno[0]->fk_idproducto;
             return $this;
         }
         return null;
     }
 
     public function guardar() {
-        $sql = "UPDATE sistema_menues SET
-            nombre='$this->nombre',
-            fk_idcategoria='$this->fk_idcategoria'
-            WHERE idcategoria=?";
-        $affected = DB::update($sql, [$this->idcategoria]);
+        $sql = "UPDATE combo_detalle SET
+            fk_idcombo='$this->fk_idcombo',
+            fk_idproducto='$this->fk_idproducto'
+            WHERE fk_idcombo=?";
+        $affected = DB::update($sql, [$this->fk_idcombo]);
     }
 
     public  function eliminar() {
-        $sql = "DELETE FROM categoriass WHERE 
-            idcategoria=?";
-        $affected = DB::delete($sql, [$this->idcategoria]);
+        $sql = "DELETE FROM combo_detalle WHERE 
+            fk_idcombo=?";
+        $affected = DB::delete($sql, [$this->fk_idcombo]);
     }
 
     public function insertar() {
-        $sql = "INSERT INTO categorias (
-                nombre,
-                fk_idcategoria
+        $sql = "INSERT INTO combo_detalle (
+                fk_idcombo,
+                fk_idproducto
             ) VALUES (?, ?);";
        $result = DB::insert($sql, [
-            $this->nombre, 
-            $this->fk_idcategoria 
-
+            $this->fk_idcombo,
+            $this->fk_idproducto
         ]);
-       return $this->idcategoria = DB::getPdo()->lastInsertId();
+       return $this->fk_idcombo = DB::getPdo()->lastInsertId();
     }
 
     public function obtenerMenuDelGrupo($idGrupo){
