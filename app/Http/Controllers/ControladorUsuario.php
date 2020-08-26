@@ -26,7 +26,7 @@ class ControladorUsuario extends Controller
                 return view('sistema.listar', compact('titulo'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }
     }
 
@@ -48,7 +48,7 @@ class ControladorUsuario extends Controller
                 return view('sistema.nuevo-usuario', compact('array_area', 'array_grupo'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }        
     }
 
@@ -72,7 +72,7 @@ class ControladorUsuario extends Controller
                 return view('sistema.nuevo-usuario', compact('usuario','array_area', 'array_grupo'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }
     }
 
@@ -91,7 +91,7 @@ class ControladorUsuario extends Controller
             $cont=0;
             for ($i=$inicio; $i < count($usuarios) && $cont < $registros_por_pagina; $i++) {
                 $row = array();
-                $row[] = '<a href="/usuarios/' . $usuarios[$i]->usuario . '">' . $usuarios[$i]->usuario . '</a>';
+                $row[] = '<a href="/admin/usuarios/' . $usuarios[$i]->usuario . '">' . $usuarios[$i]->usuario . '</a>';
                 $row[] = $usuarios[$i]->nombre;
                 $row[] = $usuarios[$i]->apellido;
                 $row[] = $usuarios[$i]->created_at != ""? date_format(date_create($usuarios[$i]->created_at), 'Y-m-d H:i') : "";

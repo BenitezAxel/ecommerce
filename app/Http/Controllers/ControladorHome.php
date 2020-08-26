@@ -13,7 +13,7 @@ class ControladorHome extends Controller
         if(Usuario::autenticado() == true){
             return view('sistema.index', compact('titulo'));
         } else {
-           return redirect('login');
+            return redirect('admin/login');
         }
         
     }

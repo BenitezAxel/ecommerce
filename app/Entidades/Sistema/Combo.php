@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Entidades\Sistema\Producto;
+namespace App\Entidades\Sistema;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Producto
+class Combo
 {
-    protected $table = 'productos';
+    protected $table = 'combos';
     public $timestamps = false;
 
     protected $fillable = [
-        'idproducto', 'nombre', 'precio', 'descripcion', 'foto', 'fk_idcategorias', 'stock', 'activo'
+        'idcombo', 'nombre', 'descripcion', 'imagen'
     ];
 
     protected $hidden = [
@@ -20,14 +20,10 @@ class Producto
     ];
 
     function cargarDesdeRequest($request) {
-        $this->idproducto = $request->input('id')!="0" ? $request->input('id') : $this->idmenu;
+        $this->idcombo = $request->input('id')!="0" ? $request->input('id') : $this->idcombo;
         $this->nombre = $request->input('txtNombre');
-        $this->precio = $request->input('txtPrecio');
-        $this->descripcion = $request->input('txtDescripcion') != "" ? $request->input('txtDescripcion') : 0;
-        $this->foto = $request->input('txtFoto');
-        $this->fk_idcategorias = $request->input('lstCategorias');
-        $this->stock = $request->input('txtStock');
-        $this->activo = $request->input('lstActivo');
+        $this->descripcion = $request->input('txtDescripcion');
+        $this->imagen = $request->input('txtImagen');
     }
 
     public function obtenerFiltrado() {
@@ -64,22 +60,14 @@ class Producto
 
     public function obtenerTodos() {
         $sql = "SELECT 
-                  A.idproducto,
-                  A.nombre,
-                  A.precio,
-                  A.descripcion,
-                  A.foto,
-                  A.fk_idcategoria,
-                  A.stock,
-                  A.activo
-                FROM productos A";
-
-        $sql .= " ORDER BY A.nombre";
+                  A.idcombo,
+                  A.nombre
+                FROM combos A ORDER BY A.nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 
-    public function obtenerMenuPadre() {
+       public function obtenerMenuPadre() {
         $sql = "SELECT DISTINCT
                   A.idmenu,
                   A.nombre
@@ -107,73 +95,52 @@ class Producto
         return $resultado;
     }
 
-    public function obtenerPorId($idproducto) {
+    public function obtenerPorId($idcombo) {
         $sql = "SELECT
-                idproducto,
+                idcombo,
                 nombre,
-                precio,
                 descripcion,
-                foto,
-                fk_idcategoria,
-                stock,
-                activo
-                FROM productos WHERE idproducto = '$idproducto'";
+                imagen
+                FROM combos WHERE idcombo = '$idcombo'";
         $lstRetorno = DB::select($sql);
 
         if(count($lstRetorno)>0){
-            $this->idproducto = $lstRetorno[0]->idproducto;
+            $this->idcombo = $lstRetorno[0]->idcombo;
             $this->nombre = $lstRetorno[0]->nombre;
-            $this->precio = $lstRetorno[0]->precio;
             $this->descripcion = $lstRetorno[0]->descripcion;
-            $this->foto = $lstRetorno[0]->foto;
-            $this->fk_idcategoria = $lstRetorno[0]->fk_idcategoria;
-            $this->stock = $lstRetorno[0]->stock;
-            $this->activo = $lstRetorno[0]->activo;
+            $this->imagen = $lstRetorno[0]->imagen;
             return $this;
         }
         return null;
     }
 
     public function guardar() {
-        $sql = "UPDATE productos SET
+        $sql = "UPDATE combos SET
             nombre='$this->nombre',
-            precio='$this->precio',
-            descripcion=$this->descripcion,
-            foto='$this->foto',
-            fk_idcategoria='$this->fk_idcategoria',
-            stock='$this->stock',
-            activo='$this->activo'
-            WHERE idproducto=?";
-        $affected = DB::update($sql, [$this->idproducto]);
+            descripcion='$this->descripcion',
+            imagen='$this->imagen'
+            WHERE idcombo=?";
+        $affected = DB::update($sql, [$this->idcombo]);
     }
 
     public  function eliminar() {
-        $sql = "DELETE FROM productos WHERE 
-            idproducto=?";
-        $affected = DB::delete($sql, [$this->idprodcto]);
+        $sql = "DELETE FROM combos WHERE 
+            idcombo=?";
+        $affected = DB::delete($sql, [$this->idcombo]);
     }
 
     public function insertar() {
-        $sql = "INSERT INTO productos (
-                idproducto,
+        $sql = "INSERT INTO combos (
                 nombre,
-                precio,
                 descripcion,
-                foto,
-                fk_idcategoria,
-                stock,
-                activo
-            ) VALUES (?, ?, ?, ?, ?, ?, ?);";
+                imagen
+            ) VALUES (?, ?, ?);";
        $result = DB::insert($sql, [
             $this->nombre, 
-            $this->precio, 
             $this->descripcion, 
-            $this->foto, 
-            $this->fk_idcategoria,
-            $this->stock,
-            $this->activo
+            $this->imagen
         ]);
-       return $this->idproducto = DB::getPdo()->lastInsertId();
+       return $this->idcombo = DB::getPdo()->lastInsertId();
     }
 
     public function obtenerMenuDelGrupo($idGrupo){

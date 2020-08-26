@@ -65,9 +65,7 @@ class Menu extends Model
         $sql = "SELECT 
                   A.idmenu,
                   A.nombre
-                FROM sistema_menues A";
-
-        $sql .= " ORDER BY A.nombre";
+                FROM sistema_menues A ORDER BY A.nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
@@ -83,6 +81,18 @@ class Menu extends Model
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
+
+    public function obtenerEspecialidad() {
+        $sql = "SELECT DISTINCT
+                  A.idespecialidad,
+                  A.nombre
+                FROM especialidades A";
+
+        $sql .= " ORDER BY A.nombre";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
+
 
     public function obtenerSubMenu($idmenu=null){
         if($idmenu){

@@ -31,7 +31,7 @@ class ControladorLogin extends Controller
     
     public function logout(Request $request){
         Session::flush();
-        return redirect('login');
+        return redirect('admin/login');
     }
 
     public function entrar(Request $request){
