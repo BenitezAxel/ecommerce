@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,7 @@
   <link rel="icon" href="{{ asset('images/favicon.png') }}">
   <link href="{{ asset('css/normalize.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/bootstrap-select.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet" type="text/css">
@@ -25,6 +26,8 @@
   <script src="{{ asset('js/jquery.validate.js') }}"></script>
   <script src="{{ asset('js/localization/messages_es.js') }}"></script>
   <script src="{{ asset('js/funciones_generales.js') }}"></script>
+  <script src="{{ asset('js/bootstrap-select.js') }}"></script>
+
 	<script>
 	    function cambiarGrupo() {
 	        idGrupo = $("#lstGrupo option:selected").val();
@@ -36,10 +39,10 @@
 	            dataType: "json",
 	            success: function (data) {
 	                if (data.err = "0") {
-	                  if(window.location.pathname == "/login")
-	                    location.href ="/";
+	                  if(window.location.pathname == "/admin/login")
+	                    location.href ="/admin";
 	                  else
-	                    location.href ="/";
+	                    location.href ="/admin";
                       //location.reload();
 	                } else {
 	                    alert("Error al cambiar el grupo");
@@ -199,7 +202,7 @@
           <div class="modal-body">Seleccciona "Cerrar sesi&oacute;n" si deseas terminar la sesi&oacute;n actual.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="/logout">Cerrar sesi&oacute;n</a>
+            <a class="btn btn-primary" href="/admin/logout">Cerrar sesi&oacute;n</a>
           </div>
         </div>
       </div>

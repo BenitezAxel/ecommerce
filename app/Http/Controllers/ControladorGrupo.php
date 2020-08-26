@@ -23,7 +23,7 @@ class ControladorGrupo extends Controller
                  return view('sistema.grupo-listar', compact('titulo'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }   
     }
 
@@ -38,7 +38,7 @@ class ControladorGrupo extends Controller
                  return view('sistema.grupo-nuevo');
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }   
     }
 
@@ -55,7 +55,7 @@ class ControladorGrupo extends Controller
                 return view('sistema.grupo-nuevo', compact('grupo'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }
     }
 
@@ -71,7 +71,7 @@ class ControladorGrupo extends Controller
             $cont=0;
             for ($i=0; $i < count($grupos); $i++) {
                 $row = array();
-                $row[] = '<a href="/grupo/' . $grupos[$i]->idarea . '">' . $grupos[$i]->descarea . '</a>';
+                $row[] = '<a href="/admin/grupo/' . $grupos[$i]->idarea . '">' . $grupos[$i]->descarea . '</a>';
                 $row[] = $grupos[$i]->ncarea;
                 $row[] = $grupos[$i]->activo == ACTIVO ? "Si" : "No";
                 $cont++;

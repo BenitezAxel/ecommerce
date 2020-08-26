@@ -24,7 +24,7 @@ class ControladorPermiso extends Controller
                 return view('sistema.permiso-listar', compact('titulo'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }   
     }
 
@@ -39,7 +39,7 @@ class ControladorPermiso extends Controller
                 return view('sistema.permiso-nuevo');
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         }           
     }
 
@@ -56,7 +56,7 @@ class ControladorPermiso extends Controller
                 return view('sistema.permiso-nuevo', compact('permiso'));
             }
         } else {
-           return redirect('login');
+           return redirect('admin/login');
         } 
 
     }
@@ -73,7 +73,7 @@ class ControladorPermiso extends Controller
             $cont=0;
             for ($i=0; $i < count($permiso); $i++) {
                 $row = array();
-                $row[] = '<a href="/permiso/' . $permiso[$i]->idfamilia . '">' . $permiso[$i]->nombre . '</a>';
+                $row[] = '<a href="/admin/permiso/' . $permiso[$i]->idfamilia . '">' . $permiso[$i]->nombre . '</a>';
                 $row[] = $permiso[$i]->descripcion;
                 $cont++;
                 $data[] = $row;
