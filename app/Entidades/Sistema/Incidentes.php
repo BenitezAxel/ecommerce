@@ -17,7 +17,7 @@ class Incidentes extends Model
 
     protected $hidden = [
 
-    ];
+    ];    
 
     function cargarDesdeRequest($request) {
         $this->idincidente = $request->input('id')!="0" ? $request->input('id') : $this->idincidente;
@@ -98,6 +98,8 @@ class Incidentes extends Model
         ]);
        return $this->idincidente = DB::getPdo()->lastInsertId();
     }
+
+}
 
 
 
