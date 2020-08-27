@@ -7,7 +7,7 @@ use DB;
 use Session;
 require app_path().'/start/constants.php';
 
-class Sucursal
+class Sucursal extends Model
 {
     protected $table = 'sucursales';
     public $timestamps = false;
