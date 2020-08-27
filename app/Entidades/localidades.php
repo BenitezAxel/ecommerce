@@ -25,6 +25,17 @@ class Localidades extends Model
         $this->fk_idprovincia = $request->input('fk_idprovincia');       
     }
 
+    public function obtenerTodos() {
+        $sql = "SELECT 
+                  A.idlocalidad,
+                  A.nombre,
+                  A.fk_idprovincia,
+                  
+                FROM localidades A ORDER BY A.nombre";
+        $lstRetorno = DB::select($sql);
+        return $lstRetorno;
+    }
+
     public function obtenerPorId($idlocalidad) {
         $sql = "SELECT
                 idlocalidad,
