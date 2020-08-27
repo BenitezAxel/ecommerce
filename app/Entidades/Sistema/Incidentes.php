@@ -1,4 +1,4 @@
-<?ph
+<?php
 
 namespace App\Entidades\Sistema;
 
@@ -101,4 +101,4 @@ class Incidentes extends Model
 
 
 
-
+?>
