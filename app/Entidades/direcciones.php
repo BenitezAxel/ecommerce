@@ -36,7 +36,7 @@ class direcciones extends Model
                   A.numero,
                   A.fk_idlocalidad,
                   A.codigo_postal,
-                  A.fk_istipodireccion,
+                  A.fk_idtipodireccion,
                   A.fk_idcliente
 
                 FROM direcciones A ORDER BY A.domiclio";
@@ -58,7 +58,7 @@ class direcciones extends Model
 
         if(count($lstRetorno)>0){
             $this->iddireccion = $lstRetorno[0]->iddireccion;
-            $this->domiclio = $lstRetorno[0]->domicilio;
+            $this->domicilio = $lstRetorno[0]->domicilio;
             $this->fk_idlocalidad = $lstRetorno[0]->fk_idlocalidad;
             $this->codigo_postal = $lstRetorno[0]->codigo_postal;
             $this->fk_istipodireccion = $lstRetorno[0]->fk_istipodireccion;
