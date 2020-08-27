@@ -77,7 +77,7 @@ class Menu extends Model
                 FROM sistema_menues A
                 WHERE A.id_padre = 0";
 
-        $sql .= " ORDER BY A.nombre";
+        $sql = " ORDER BY A.nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }

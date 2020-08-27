@@ -7,7 +7,7 @@ use DB;
 use Session;
 require app_path().'/start/constants.php';
 
-class Sucursal
+class Sucursal extends Model
 {
     protected $table = 'sucursales';
     public $timestamps = false;
@@ -20,9 +20,10 @@ class Sucursal
 
     function cargarDesdeRequest($request) {
         $this->idsucursal = $request->input('id')!="0" ? $request->input('id') : $this->idsucursal;
-        $this->fk_iddireccion = isset($request["lstDireccion"])? $request["lstDireccion"] : "";
-        $this->fk_idlocalidad = isset($request["lstLocalidad"])? $request["lstLocalidad"] : "";
-        $this->fk_idprovincia = isset($request["lstProvincia"])? $request["lstProvincia"] : "";
+        $this->fk_iddireccion = $request->input('lstDireccion');
+        $this->fk_idlocalidad = $request->input('lstLocalidad');
+        $this->fk_idprovincia = $request->input('lstProvincia');
+
     }
 
 

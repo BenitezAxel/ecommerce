@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Provincia extends Model
+class Tipos_direcciones extends Model
 {
-    protected $table = 'provincias';
+    protected $table = 'tipos_direcciones';
     public $timestamps = false;
 
     protected $fillable = [
-        'idprovincia', 'nombre'
+        'idtipodireccion', 'nombre'
     ];
 
     protected $hidden = [
@@ -20,29 +20,29 @@ class Provincia extends Model
     ];
 
     function cargarDesdeRequest($request) {
-        $this->idprovincia = $request->input('id')!="0" ? $request->input('id') : $this->idprovincia;
+        $this->idtipodireccion = $request->input('id')!="0" ? $request->input('id') : $this->idtipodireccion;
         $this->nombre = $request->input('txtNombre');
     }
 
     public function obtenerTodos() {
         $sql = "SELECT 
-                  A.idprovincia,
+                  A.idtipodireccion,
                   A.nombre
-                FROM provincias A ORDER BY A.nombre";
+                FROM tipos_direcciones A ORDER BY A.nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 
 
-    public function obtenerPorId($idprovincia) {
+    public function obtenerPorId($idtipodireccion) {
         $sql = "SELECT
-                idprovincia,
+                idtipodireccion,
                 nombre
-                FROM provincias WHERE idprovincia = '$idprovincia'";
+                FROM tipos_direcciones WHERE idtipodireccion = '$idtipodireccion'";
         $lstRetorno = DB::select($sql);
 
         if(count($lstRetorno)>0){
-            $this->idprovincia = $lstRetorno[0]->idprovincia;
+            $this->idtipodireccion = $lstRetorno[0]->idtipodireccion;
             $this->nombre = $lstRetorno[0]->nombre;
             return $this;
         }
@@ -50,26 +50,26 @@ class Provincia extends Model
     }
 
     public function guardar() {
-        $sql = "UPDATE provincias SET
+        $sql = "UPDATE tipos_direcciones SET
             nombre='$this->nombre'
-            WHERE idprovincia=?";
-        $affected = DB::update($sql, [$this->idprovincia]);
+            WHERE idtipodireccion=?";
+        $affected = DB::update($sql, [$this->idtipodireccion]);
     }
 
     public  function eliminar() {
-        $sql = "DELETE FROM provincias WHERE 
-            idprovincia=?";
-        $affected = DB::delete($sql, [$this->idprovincia]);
+        $sql = "DELETE FROM tipos_direcciones WHERE 
+            idtipodireccion=?";
+        $affected = DB::delete($sql, [$this->idtipodireccion]);
     }
 
     public function insertar() {
-        $sql = "INSERT INTO provincias (
+        $sql = "INSERT INTO tipos_direcciones (
                 nombre
             ) VALUES (?);";
        $result = DB::insert($sql, [
             $this->nombre
         ]);
-       return $this->idprovincia = DB::getPdo()->lastInsertId();
+       return $this->idtipodireccion = DB::getPdo()->lastInsertId();
     }
 
 
