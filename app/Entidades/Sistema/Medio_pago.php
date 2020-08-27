@@ -12,42 +12,42 @@ class Medio_pago extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idmedio', 'medio_de_pago'
+        'idmediopago', 'medio_de_pago'
     ];
 
     protected $hidden = [
 
     ];
     function cargarDesdeRequest($request) {
-        $this->idmedio = $request->input('id')!="0" ? $request->input('id') : $this->idmedio;
+        $this->idmediopago = $request->input('id')!="0" ? $request->input('id') : $this->idmedio;
         $this->medio_de_pago = $request->input('txtMedio');        
     }
     public function obtenerTodos() {
         $sql = "SELECT 
-                  A.idmedio,
+                  A.idmediopago,
                   A.medio_de_pago
                 FROM medios_pago A ORDER BY A.medio_de_pago";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
-    public function obtenerPorId ($idmedio){
+    public function obtenerPorId ($idmediopago){
         $sql="SELECT 
-            idmedio,
+            idmediopago,
             medio_de_pago
-            FROM medios_pago WHERE idmedio=?";
-        $lstRetorno = DB::select($sql,[$this->idmedio]);
+            FROM medios_pago WHERE idmediopago=?";
+        $lstRetorno = DB::select($sql,[$this->idmediopago]);
 
     }
     public function guardar(){
         $sql="UPDATE medios_pago SET 
         medio_de_pago='$this->medio_de_pago'
-        WHERE idmedio=?";
-        $affected = DB::update($sql,[$this->idmedio]);
+        WHERE idmediopago=?";
+        $affected = DB::update($sql,[$this->idmediopago]);
         
     }
     public function eliminar(){
-        $sql="DELETE FROM medios_pago WHERE idmedio=?";
-        $affected = DB::delete($sql,[$this->idmedio]);
+        $sql="DELETE FROM medios_pago WHERE idmediopago=?";
+        $affected = DB::delete($sql,[$this->idmediopago]);
     }
     public function insertar(){
         $sql="INSERT INTO medios_pago(
