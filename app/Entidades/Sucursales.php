@@ -20,9 +20,10 @@ class Sucursal extends Model
 
     function cargarDesdeRequest($request) {
         $this->idsucursal = $request->input('id')!="0" ? $request->input('id') : $this->idsucursal;
-        $this->fk_iddireccion = isset($request["lstDireccion"])? $request["lstDireccion"] : "";
-        $this->fk_idlocalidad = isset($request["lstLocalidad"])? $request["lstLocalidad"] : "";
-        $this->fk_idprovincia = isset($request["lstProvincia"])? $request["lstProvincia"] : "";
+        $this->fk_iddireccion = $request->input('lstDireccion');
+        $this->fk_idlocalidad = $request->input('lstLocalidad');
+        $this->fk_idprovincia = $request->input('lstProvincia');
+
     }
 
 
