@@ -34,7 +34,7 @@ class Categoria_Producto extends Model
                   A.fk_idcategoria
                 FROM categoria_productos A";
 
-        $sql .= " ORDER BY A.idproducto";
+        $sql .= " ORDER BY A.fk_idproducto";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
@@ -44,8 +44,8 @@ class Categoria_Producto extends Model
 
       public  function eliminarPorProducto() {
         $sql = "DELETE FROM categoria_productos WHERE 
-            idproducto=?";
-        $affected = DB::delete($sql, [$this->idproducto]);
+            fk_idproducto=?";
+        $affected = DB::delete($sql, [$this->fk_idproducto]);
     }
 
 
