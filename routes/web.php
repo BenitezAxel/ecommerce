@@ -87,6 +87,18 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR TRANSFERENCIA BANCARIA */
 /* --------------------------------------------- */
 Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
+/* --------------------------------------------- */
+/* CONTROLADOR INCIDENTE                             */
+/* --------------------------------------------- */
+Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
 
+/* --------------------------------------------- */
+/* CONTROLADOR VENDEDORES                        */
+/* --------------------------------------------- */
+Route::get('/admin/vendedor/nuevo', 'ControladorVendedor@nuevo');
 
+/* --------------------------------------------- */
+/* CONTROLADOR CLIENTE                           */
+/* --------------------------------------------- */
+Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 });
