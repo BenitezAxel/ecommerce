@@ -89,4 +89,8 @@ Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
 
 
 
+/* --------------------------------------------- */
+/* CONTROLADOR CLIENTE                           */
+/* --------------------------------------------- */
+Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 });
