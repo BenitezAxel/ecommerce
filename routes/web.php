@@ -91,10 +91,15 @@ Route::group(array('domain' => '127.0.0.1'), function () {
    
 /* --------------------------------------------- */
 /*  CONTROLADOR PRODUCTOS */
+<<<<<<< HEAD
+/* ------------------------*/
+    Route::get('/admin/producto/nuevo' , 'ControladorProducto@nuevo');
+=======
 /* --------------------------------------------- */
 
     Route::get('/admin/sistema/productos' , 'ControladorProducto@nuevo');
 
+>>>>>>> 299a37227ab62e873eaa20fabfc0fcddcf81380e
 /* --------------------------------------------- */
 /* CONTROLADOR INCIDENTE                             */
 /* --------------------------------------------- */
