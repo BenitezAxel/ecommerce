@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Localidades extends Model
+class Localidad extends Model
 {
     protected $table = 'localidades';
     public $timestamps = false;

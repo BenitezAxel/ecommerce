@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Incidentes extends Model
+class Incidente extends Model
 {
     protected $table = 'incidentes';
     public $timestamps = false;
-
     protected $fillable = [
         'idincidente', 'nombre', 'fk_idventa', 'descripcion', 'fecha', 'fk_idestado'
     ];
@@ -23,8 +22,8 @@ class Incidentes extends Model
         $this->idincidente = $request->input('id')!="0" ? $request->input('id') : $this->idincidente;
         $this->nombre = $request->input('txtNombre');
         $this->fk_idventa = $request->input('fk_idventa');
-        $this->descripcion = $request->input('txtdescripcion') != "" ? 
-        $this->fecha = $request->input('txtfecha');
+        $this->descripcion = $request->input('txtdescripcion'); 
+        $this->fecha = $request->input('txtFecha');
         $this->fk_idestado = $request->input('fk_idestado');        
     }
     

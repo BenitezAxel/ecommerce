@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illiminate\Database\Elonquent\Model;
 use DB;
 use Session;
 
-class Respuesta_incidente extends Model
+class RespuestaIncidente extends Model
 {
     Protected $table = 'respuestas_incidentes';
     public $timestamps = false;

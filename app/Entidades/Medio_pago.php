@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
@@ -19,7 +19,7 @@ class Medio_pago extends Model
 
     ];
     function cargarDesdeRequest($request) {
-        $this->idmediopago = $request->input('id')!="0" ? $request->input('id') : $this->idmedio;
+        $this->idmediopago = $request->input('id')!="0" ? $request->input('id') : $this->idmediopago;
         $this->medio_de_pago = $request->input('txtMedio');        
     }
     public function obtenerTodos() {

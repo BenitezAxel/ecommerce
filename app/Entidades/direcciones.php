@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class direcciones extends Model
+class Direcciones extends Model
 {
     protected $table = 'sistema_menues';
     public $timestamps = false;
@@ -96,7 +96,7 @@ class direcciones extends Model
                 fk_idcliente
             ) VALUES (?, ?, ?, ?, ?, ?);";
        $result = DB::insert($sql, [
-            $this->domicilio, 
+            $this->domicilio,
             $this->numero, 
             $this->fk_idlocalidad, 
             $this->codigo_postal, 
