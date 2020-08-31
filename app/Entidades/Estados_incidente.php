@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class estados_incidentes extends Model
+class Estados_incidente extends Model
 {
     protected $table = 'estados_incidentes';
     public $timestamps = false;

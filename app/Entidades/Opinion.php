@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class opiniones extends Model
+class Opinion extends Model
 {
     protected $table = 'opiniones';
     public $timestamps = false;
