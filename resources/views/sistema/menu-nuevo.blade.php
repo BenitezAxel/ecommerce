@@ -83,7 +83,7 @@ if (isset($msg)) {
                  <div class="form-group col-lg-6">
                     <label>CSS:</label>
                     <input type="text" id="txtCss" name="txtCss" class="form-control" value="{{$menu->css or ''}}">
-                    <a href="https: //fontawesome.com/icons?d=gallery" target="blank">Catálogo de íconos</a>
+                    <a href="https://fontawesome.com/icons?d=gallery" target="blank">Catálogo de íconos</a>
                 </div>
             </div>
 			<div class="card mb-3">
