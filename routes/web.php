@@ -82,16 +82,22 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sistema/menu/{id}', 'ControladorMenu@editar');
     Route::post('/admin/sistema/menu/{id}', 'ControladorMenu@guardar');
 
-    
 /* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                            */
 /* --------------------------------------------- */
     Route::get('/categorias','ControladorCategoria@index');
+<<<<<<< HEAD
     Route::get('/categorias/categoria/nuevo','ControladorCategoria@nuevo');
 /*-----------------------*/
+=======
+
+/* --------------------------------------------- */
+>>>>>>> 2013ba37ca5fe6f62467c46696637fc4ced57f22
 /*  CONTROLADOR PRODUCTOS */
-/* ------------------------*/
+/* --------------------------------------------- */
+
     Route::get('/admin/sistema/productos' , 'ControladorProducto@nuevo');
+
 /* --------------------------------------------- */
 /* CONTROLADOR INCIDENTE                             */
 /* --------------------------------------------- */
