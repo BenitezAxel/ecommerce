@@ -1,7 +1,7 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
 use App\Entidades\Medio_pago;
 use App\Entidades\Sistema\Menu;
