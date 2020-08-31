@@ -94,6 +94,13 @@ Route::get('/admin/sucursales', 'ControladorSucursal@index');
 Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
 Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
 
+/* --------------------------------------------- */
+/* CONTROLADOR VENDEDORES                        */
+/* --------------------------------------------- */
+Route::get('/admin/vendedor/nuevo', 'ControladorVendedor@nuevo');
 
-
+/* --------------------------------------------- */
+/* CONTROLADOR CLIENTE                           */
+/* --------------------------------------------- */
+Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 });
