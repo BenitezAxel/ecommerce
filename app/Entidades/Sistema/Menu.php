@@ -75,24 +75,10 @@ class Menu extends Model
                   A.idmenu,
                   A.nombre
                 FROM sistema_menues A
-                WHERE A.id_padre = 0";
-
-        $sql = " ORDER BY A.nombre";
+                WHERE A.id_padre = 0 ORDER BY A.nombre";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
-
-    public function obtenerEspecialidad() {
-        $sql = "SELECT DISTINCT
-                  A.idespecialidad,
-                  A.nombre
-                FROM especialidades A";
-
-        $sql .= " ORDER BY A.nombre";
-        $lstRetorno = DB::select($sql);
-        return $lstRetorno;
-    }
-
 
     public function obtenerSubMenu($idmenu=null){
         if($idmenu){
@@ -100,9 +86,7 @@ class Menu extends Model
                       A.idmenu,
                       A.nombre
                     FROM sistema_menues A
-                    WHERE A.idmenu <> '$idmenu'";
-
-            $sql .= " ORDER BY A.nombre";
+                    WHERE A.idmenu <> '$idmenu' ORDER BY A.nombre";
             $resultado = DB::select($sql);
         } else {
             $resultado = $this->obtenerTodos();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illiminate\Database\Elonquent\Model;
 use DB;

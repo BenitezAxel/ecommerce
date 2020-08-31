@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Tipos_direcciones extends Model
+class Tipos_direccion extends Model
 {
     protected $table = 'tipos_direcciones';
     public $timestamps = false;
