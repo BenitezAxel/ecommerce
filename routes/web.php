@@ -93,16 +93,22 @@ Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenci
 /* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                            */
 /* --------------------------------------------- */
-    Route::get('/admin/categorias','ControladorCategoria@index');
-
     
+    Route::get('categoria/nuevo','ControladorCategoria@nuevo');
+/*-----------------------*/
+   
 /* --------------------------------------------- */
 >>>>>>> 299a37227ab62e873eaa20fabfc0fcddcf81380e
 /*  CONTROLADOR PRODUCTOS */
+<<<<<<< HEAD
+/* ------------------------*/
+    Route::get('/admin/producto/nuevo' , 'ControladorProducto@nuevo');
+=======
 /* --------------------------------------------- */
 
     Route::get('/admin/sistema/productos' , 'ControladorProducto@nuevo');
 
+>>>>>>> 299a37227ab62e873eaa20fabfc0fcddcf81380e
 /* --------------------------------------------- */
 /* CONTROLADOR INCIDENTE                             */
 /* --------------------------------------------- */
