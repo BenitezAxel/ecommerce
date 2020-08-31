@@ -90,6 +90,6 @@ Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
 /* --------------------------------------------- */
 /* CONTROLADOR VENDEDORES                        */
 /* --------------------------------------------- */
-Route::get('/admin//vendedor/nuevo', 'ControladorVendedor@nuevo');
+Route::get('/admin/vendedor/nuevo', 'ControladorVendedor@nuevo');
 
 });
