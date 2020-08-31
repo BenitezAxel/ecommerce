@@ -85,7 +85,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                            */
 /* --------------------------------------------- */
-    Route::get('/categorias','ControladorCategoria@index');
+    Route::get('/admin/categorias','ControladorCategoria@index');
 
 /* --------------------------------------------- */
 /*  CONTROLADOR PRODUCTOS */
