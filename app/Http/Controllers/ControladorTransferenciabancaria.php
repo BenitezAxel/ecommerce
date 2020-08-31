@@ -12,7 +12,7 @@ use Session;
 class ControladorTransferenciabancaria extends Controller{
    public function nuevo(){
        $titulo = "Nueva tranferencia bancaria";
-       return view('turno.turno-nuevo', compact('titulo'));   
+       return view('transferenciabancaria.tranferenciabancaria', compact('titulo'));   
    }
  
 }
