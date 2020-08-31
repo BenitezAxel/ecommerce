@@ -83,6 +83,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/admin/sistema/menu/{id}', 'ControladorMenu@guardar');
 
     
-
-
+/* --------------------------------------------- */
+/* CONTROLADOR CATEGORÍAS                            */
+/* --------------------------------------------- */
+    Route::get('/categorias','ControladorCategoria@index');
+    Route::get('/categoria/nuevo', 'ControladorCategoria@nuevo');
 });
