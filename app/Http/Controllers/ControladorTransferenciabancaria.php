@@ -14,5 +14,5 @@ class ControladorTransferenciabancaria extends Controller{
        $titulo = "Nueva tranferencia bancaria";
        return view('transferenciabancaria.tranferenciabancaria', compact('titulo'));   
    }
- 
+
 }
