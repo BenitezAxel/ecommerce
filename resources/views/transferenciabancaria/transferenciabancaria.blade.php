@@ -10,11 +10,11 @@
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
-    <li class="breadcrumb-item"><a href=/admin/sistema/menu>Men&uacute;</a></li>
-    <li class="breadcrumb-item active">Modificar</li>
+    <li class="breadcrumb-item"><a href="/admin/sistema/menu">Medios de pago</a></li>
+    <li class="breadcrumb-item active">Transferencia bancaria</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/menu/nuevo" class="fas fa-plus" aria-hidden="true"><span>Nuevo</span></a></li>
+   
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     <li class="btn-item"><a title="Guardar" href="#" class="fas fa-trash" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a>
@@ -45,21 +45,39 @@ if (isset($msg)) {
             <div class="row">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                 <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+                
                 <div class="form-group col-lg-6">
-                    <label>Direcci&oacute;n: *</label>
-                    <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" value="{{ $menu->direccion or '' }}" required>
-                </div>
-                <div class="form-group col-lg-6">
-                    <label>Localidad:</label>
-                    <select id="lstLocalidad" name="lstLocalidad" class="form-control" required>
-
+                    <label>Banco:</label>
+                    <select id="lstMenuPadre" name="lstMenuPadre" class="form-control">
                     </select>
                 </div>
                 <div class="form-group col-lg-6">
-                    <label>Provincia:</label>
-                    <select id="lstProvincia" name="lstProvincia" class="form-control" required>
-                        
+                    <label>Sucursal</label>
+                    <select id="lstActivo" name="lstActivo" class="form-control" required>
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="1" {{isset($menu) && $menu->activo == 1? 'selected' : ''}}>Si</option>
+                        <option value="0" {{isset($menu) &&$menu->activo == 0? 'selected' : ''}}>No</option>
                     </select>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>CBU:</label>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Alias:</label>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Cuenta:</label>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Cuit:</label>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Razon social:</label>
+                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
                 </div>
             </div>
 		

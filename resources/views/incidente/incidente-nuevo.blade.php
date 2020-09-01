@@ -14,12 +14,12 @@
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/menu/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
-    <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
+    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/menu/nuevo" class="fas fa-plus" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Guardar" href="#" class="fas fa-save" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
-    <li class="btn-item"><a title="Guardar" href="#" class="fa fa-trash-o" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a>
+    <li class="btn-item"><a title="Guardar" href="#" class="fas fa-trash" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a>
     </li>
-    <li class="btn-item"><a title="Salir" href="#" class="fa fa-arrow-circle-o-left" aria-hidden="true" onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
+    <li class="btn-item"><a title="Salir" href="#" class="fas fa-sign-out-alt" aria-hidden="true" onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
 </ol>
 <script>
 function fsalir(){
@@ -53,10 +53,6 @@ if (isset($msg)) {
                     <label>Men&uacute; padre:</label>
                     <select id="lstMenuPadre" name="lstMenuPadre" class="form-control">
                     </select>
-                </div>
-                <div class="form-group col-lg-6">
-                    <label>Orden:</label>
-                    <input type="number" id="txtOrden" name="txtOrden" class="form-control" value="{{$menu->orden or ''}}">
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Activo: *</label>

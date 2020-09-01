@@ -12,7 +12,7 @@ class Provincia extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'idprovincia', 'nombre'
+        'idprovincia', 'descprov', 'ncprov', 'fk_idpais'
     ];
 
     protected $hidden = [
@@ -21,14 +21,18 @@ class Provincia extends Model
 
     function cargarDesdeRequest($request) {
         $this->idprovincia = $request->input('id')!="0" ? $request->input('id') : $this->idprovincia;
-        $this->nombre = $request->input('txtNombre');
+        $this->descprov = $request->input('txtDescprov');
+        $this->ncprov = $request->input('txtNcprov');
+        $this->fk_idpais = $request->input('lstPais');
     }
 
     public function obtenerTodos() {
         $sql = "SELECT 
                   A.idprovincia,
-                  A.nombre
-                FROM provincias A ORDER BY A.nombre";
+                  A.descprov,
+                  A.ncprov,
+                  A.fk_idpais
+                FROM provincias A ORDER BY A.descprov";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
@@ -37,13 +41,13 @@ class Provincia extends Model
     public function obtenerPorId($idprovincia) {
         $sql = "SELECT
                 idprovincia,
-                nombre
+                descprov
                 FROM provincias WHERE idprovincia = '$idprovincia'";
         $lstRetorno = DB::select($sql);
 
         if(count($lstRetorno)>0){
             $this->idprovincia = $lstRetorno[0]->idprovincia;
-            $this->nombre = $lstRetorno[0]->nombre;
+            $this->descprov = $lstRetorno[0]->descprov;
             return $this;
         }
         return null;
@@ -51,7 +55,7 @@ class Provincia extends Model
 
     public function guardar() {
         $sql = "UPDATE provincias SET
-            nombre='$this->nombre'
+            descprov='$this->descprov'
             WHERE idprovincia=?";
         $affected = DB::update($sql, [$this->idprovincia]);
     }
@@ -64,10 +68,10 @@ class Provincia extends Model
 
     public function insertar() {
         $sql = "INSERT INTO provincias (
-                nombre
+                descprov
             ) VALUES (?);";
        $result = DB::insert($sql, [
-            $this->nombre
+            $this->descprov
         ]);
        return $this->idprovincia = DB::getPdo()->lastInsertId();
     }
