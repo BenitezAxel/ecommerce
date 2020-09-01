@@ -85,7 +85,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* --------------------------------------------- */
 /* CONTROLADOR TRANSFERENCIA BANCARIA            */
 /* --------------------------------------------- */
-    Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
+    Route::get('/admin/mediodepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
 
 /* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                        */
