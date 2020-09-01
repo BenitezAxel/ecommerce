@@ -40,14 +40,17 @@ class Provincia extends Model
 
     public function obtenerPorId($idprovincia) {
         $sql = "SELECT
-                idprovincia,
-                descprov
+                descprov,
+                ncprov,
+                fk_idpais
                 FROM provincias WHERE idprovincia = '$idprovincia'";
         $lstRetorno = DB::select($sql);
 
         if(count($lstRetorno)>0){
             $this->idprovincia = $lstRetorno[0]->idprovincia;
             $this->descprov = $lstRetorno[0]->descprov;
+            $this->ncprov = $lstRetorno[0]->ncprov;
+            $this->fk_idpais = $lstRetorno[0]->fk_idpais;
             return $this;
         }
         return null;
@@ -55,7 +58,9 @@ class Provincia extends Model
 
     public function guardar() {
         $sql = "UPDATE provincias SET
-            descprov='$this->descprov'
+            descprov='$this->descprov',
+            ncprov='$this->ncprov',
+            fk_idpais=$this->idpais
             WHERE idprovincia=?";
         $affected = DB::update($sql, [$this->idprovincia]);
     }
@@ -68,10 +73,14 @@ class Provincia extends Model
 
     public function insertar() {
         $sql = "INSERT INTO provincias (
-                descprov
-            ) VALUES (?);";
+                descprov,
+                ncprov,
+                fk_idpais
+            ) VALUES (?, ?, ?);";
        $result = DB::insert($sql, [
-            $this->descprov
+            $this->descprov,
+            $this->ncprov,
+            $this->fk_idpais
         ]);
        return $this->idprovincia = DB::getPdo()->lastInsertId();
     }

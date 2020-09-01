@@ -50,15 +50,27 @@ if (isset($msg)) {
                     <input type="text" id="txtdireccion" name="txtdireccion" class="form-control" value="{{ $menu->direccion or '' }}" required>
                 </div>
                 <div class="form-group col-lg-6">
-                    <label>Localidad:</label>
+                    <label>Localidad: *</label>
                     <select id="lstLocalidad" name="lstLocalidad" class="form-control" required>
-
+                        @foreach($array_localidad as $localidad){
+                            @if($array_localidad > 0)
+                                <option value="{{ $localidad->idlocalidad }}">{{ $localidad->nombre }}</option>
+                            @else
+                                <option value="-1" selected disabled>Localidades no disponibles</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-lg-6">
-                    <label>Provincia:</label>
+                    <label>Provincia: *</label>
                     <select id="lstProvincia" name="lstProvincia" class="form-control" required>
-                        
+                        @foreach($array_provincia as $provincia)
+                            @if($array_provincia > 0)
+                                <option value="{{ $provincia->idprovincia }}">{{ $provincia->descprov }}</option>
+                            @else
+                                <option value="-1" selected disabled>Provincias no disponibles</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
             </div>

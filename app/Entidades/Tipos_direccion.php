@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Tipos_direccion extends Model
+class Tipos_Direccion extends Model
 {
     protected $table = 'tipos_direcciones';
     public $timestamps = false;

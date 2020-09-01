@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use Session;
 
-class Medio_pago extends Model
+class Medio_Pago extends Model
 {
     protected $table = 'medios_pago';
     public $timestamps = false;
