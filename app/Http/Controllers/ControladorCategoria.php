@@ -11,8 +11,12 @@ require app_path().'/start/constants.php';
 use Session;
  
 class ControladorCategoria extends Controller{
+    public function index(){
+        $titulo="Listado de Categorías";
+        return view('categoria.listado-categorias',compact('titulo'));
+    }
    public function nuevo(){
-       $titulo = "Hola";
+       $titulo = "Nueva Categoria";
  
       return view('categoria.categoria-nuevo', compact('titulo'));   
    }
