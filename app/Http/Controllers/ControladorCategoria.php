@@ -12,7 +12,7 @@ use Session;
  
 class ControladorCategoria extends Controller{
    public function nuevo(){
-       $titulo = "Hola";
+       $titulo = "Nueva Categoria";
  
       return view('categoria.categoria-nuevo', compact('titulo'));   
    }
