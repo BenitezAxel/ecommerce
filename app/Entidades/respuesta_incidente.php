@@ -6,7 +6,7 @@ use Illiminate\Database\Elonquent\Model;
 use DB;
 use Session;
 
-class RespuestaIncidente extends Model
+class Respuesta_Incidente extends Model
 {
     Protected $table = 'respuestas_incidentes';
     public $timestamps = false;
