@@ -82,14 +82,8 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sistema/menu/{id}', 'ControladorMenu@editar');
     Route::post('/admin/sistema/menu/{id}', 'ControladorMenu@guardar');
 
-<<<<<<< HEAD
 
-/* --------------------------------------------- */
-/* CONTROLADOR TRANSFERENCIA BANCARIA */
-/* --------------------------------------------- */
-Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
-/*-----------------------*/
-=======
+
 /* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                            */
 /* --------------------------------------------- */
@@ -98,17 +92,13 @@ Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenci
 /*-----------------------*/
    
 /* --------------------------------------------- */
->>>>>>> 299a37227ab62e873eaa20fabfc0fcddcf81380e
 /*  CONTROLADOR PRODUCTOS */
-<<<<<<< HEAD
 /* ------------------------*/
     Route::get('/admin/producto/nuevo' , 'ControladorProducto@nuevo');
-=======
 /* --------------------------------------------- */
 
     Route::get('/admin/sistema/productos' , 'ControladorProducto@nuevo');
 
->>>>>>> 299a37227ab62e873eaa20fabfc0fcddcf81380e
 /* --------------------------------------------- */
 /* CONTROLADOR INCIDENTE                             */
 /* --------------------------------------------- */
@@ -130,4 +120,10 @@ Route::get('/admin/vendedor/nuevo', 'ControladorVendedor@nuevo');
 /* CONTROLADOR CLIENTE                           */
 /* --------------------------------------------- */
 Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+
+/* --------------------------------------------- */
+/* CONTROLADOR TRANSFERENCIA BANCARIA */
+/* --------------------------------------------- */
+Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
+/*-----------------------*/
 });
