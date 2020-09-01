@@ -82,15 +82,13 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sistema/menu/{id}', 'ControladorMenu@editar');
     Route::post('/admin/sistema/menu/{id}', 'ControladorMenu@guardar');
 
-
 /* --------------------------------------------- */
-/* CONTROLADOR TRANSFERENCIA BANCARIA */
+/* CONTROLADOR TRANSFERENCIA BANCARIA            */
 /* --------------------------------------------- */
     Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
 
-
 /* --------------------------------------------- */
-/* CONTROLADOR CATEGORÍAS                         */
+/* CONTROLADOR CATEGORÍAS                        */
 /* --------------------------------------------- */
     Route::get('/admin/categoria/nuevo','ControladorCategoria@nuevo');
    
@@ -100,12 +98,12 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/producto/nuevo' , 'ControladorProducto@nuevo');
 
 /* --------------------------------------------- */
-/* CONTROLADOR INCIDENTE                          */
+/* CONTROLADOR INCIDENTE                         */
 /* --------------------------------------------- */
     Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
 
 /* --------------------------------------------- */
-/* CONTROLADOR SUCURSAL                             */
+/* CONTROLADOR SUCURSAL                          */
 /* --------------------------------------------- */
     Route::get('/admin/sucursales', 'ControladorSucursal@index');
     Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
