@@ -47,18 +47,46 @@ if (isset($msg)) {
             </div>
 
             <div class="form-group col-lg-6">
-                <label>Orden:</label>
-                <input type="number" id="txtOrden" name="txtOrden" class="form-control" value="{{$menu->orden or ''}}">
+                <label>Descripción:</label>
+                <input class="form-control" type="text" name="txtDescripción" id="txtDescripción" cols="30" rows="10">
             </div>
 
             <div class="form-group col-lg-6">
-                <label>URL:</label>
-                <input type="text" id="txtUrl" name="txtUrl" class="form-control" value="{{$menu->url or ''}}">
+                <label>Foto</label>
+                <input type="file" id="archivo" name="archivo" class="form-control" value="{{$menu->url or ''}}" multiple>
             </div>
             <div class="form-group col-lg-6">
-                <label>CSS:</label>
-                <input type="text" id="txtCss" name="txtCss" class="form-control" value="{{$menu->css or ''}}">
-                <a href="https://fontawesome.com/icons?d=gallery" target="blank">Catálogo de íconos</a>
+                <label>Vídeo</label>
+                <input type="file" id="archivoV" name="archivoV" class="form-control" value="{{$menu->url or ''}}">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Stock</label>
+                <input type="number" id="txtStock" name="txtStock" class="form-control" value="{{$menu->url or ''}}">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Precio</label>
+                <input type="number" id="txtPrecio" name="txtPrecio" class="form-control" value="{{$menu->url or ''}}">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Precio con descuento</label>
+                <input type="number" id="txtPrecioDesc" name="txtPrecioDesc" class="form-control" value="{{$menu->url or ''}}">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Etiqueta</label>
+                <input type="text" id="txtEtiqueta" name="txtEtiqueta" class="form-control" value="{{$menu->url or ''}}">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Sucursal</label>
+                <select name="lstSucursal" id="lstSucursal" class="form-control">
+                    <option selected value="0">-</option>
+                    @for ($i = 0; $i < count($array_sucursal); $i++)
+                     @if (isset($sucursal) and $array_sucursal[$i]->idsucursal == $producto->fk_idsucursal)
+                        <option selected value="{{ $array_sucursal[$i]->idsucursal}}">[{{ $array_sucursal[$i]->direccion}}</option>
+                        @else
+                        <option value="{{array_sucursal[$i]->idsucursal}">{{ $array_sucursal[$i]->direccion}}</option>
+                     @endif
+                   @endfor
+                </select>            
             </div>
         </div>
 
