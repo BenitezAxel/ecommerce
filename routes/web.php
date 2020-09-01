@@ -82,48 +82,41 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/sistema/menu/{id}', 'ControladorMenu@editar');
     Route::post('/admin/sistema/menu/{id}', 'ControladorMenu@guardar');
 
-
+/* --------------------------------------------- */
+/* CONTROLADOR TRANSFERENCIA BANCARIA            */
+/* --------------------------------------------- */
+    Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
 
 /* --------------------------------------------- */
-/* CONTROLADOR CATEGORÍAS                            */
+/* CONTROLADOR CATEGORÍAS                        */
 /* --------------------------------------------- */
-    
-    Route::get('categoria/nuevo','ControladorCategoria@nuevo');
-/*-----------------------*/
+    Route::get('/admin/categoria/nuevo','ControladorCategoria@nuevo');
    
-/* --------------------------------------------- */
+/* ----------------------- */
 /*  CONTROLADOR PRODUCTOS */
-/* ------------------------*/
+/* -----------------------*/
     Route::get('/admin/producto/nuevo' , 'ControladorProducto@nuevo');
-/* --------------------------------------------- */
-
-    Route::get('/admin/sistema/productos' , 'ControladorProducto@nuevo');
 
 /* --------------------------------------------- */
-/* CONTROLADOR INCIDENTE                             */
+/* CONTROLADOR INCIDENTE                         */
 /* --------------------------------------------- */
-Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
+    Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
 
 /* --------------------------------------------- */
-/* CONTROLADOR SUCURSAL                             */
+/* CONTROLADOR SUCURSAL                          */
 /* --------------------------------------------- */
-Route::get('/admin/sucursales', 'ControladorSucursal@index');
-Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
-Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
+    Route::get('/admin/sucursales', 'ControladorSucursal@index');
+    Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
+    Route::post('/admin/sucursal/nuevo', 'ControladorSucursal@guardar');
 
 /* --------------------------------------------- */
 /* CONTROLADOR VENDEDORES                        */
 /* --------------------------------------------- */
-Route::get('/admin/vendedor/nuevo', 'ControladorVendedor@nuevo');
+    Route::get('/admin/vendedor/nuevo', 'ControladorVendedor@nuevo');
 
 /* --------------------------------------------- */
 /* CONTROLADOR CLIENTE                           */
 /* --------------------------------------------- */
-Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
 
-/* --------------------------------------------- */
-/* CONTROLADOR TRANSFERENCIA BANCARIA */
-/* --------------------------------------------- */
-Route::get('/admin/mediosdepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
-/*-----------------------*/
 });

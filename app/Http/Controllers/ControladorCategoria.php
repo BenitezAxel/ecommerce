@@ -14,7 +14,7 @@ class ControladorCategoria extends Controller{
    public function nuevo(){
        $titulo = "Hola";
  
-      return view('categoria.categoriaNuevo', compact('titulo'));   
+      return view('categoria.categoria-nuevo', compact('titulo'));   
    }
  
 }
