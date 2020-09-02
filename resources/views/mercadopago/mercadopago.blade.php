@@ -52,15 +52,19 @@ if (isset($msg)) {
                 </div>
                 <div class="form-group col-lg-6">
                     <label>CVU:</label>
-                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                    <input type="number" id="txtCVU" name="txtCVU" class="form-control" value="{{ $menu->nombre or '' }}" required>
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Alias:</label>
-                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                    <input type="text" id="txtAlias" name="txtAlias" class="form-control" value="{{ $menu->nombre or '' }}" required>
                 </div>
                 <div class="form-group col-lg-6">
                     <label>DNI:</label>
-                    <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                    <input type="number" id="txtDNI" name="txtDNI" class="form-control" value="{{ $menu->nombre or '' }}" required>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Correo:</label>
+                    <input type="text" id="txtCorreo" name="txtCorreo" class="form-control" value="{{ $menu->nombre or '' }}" required>
                 </div>
             </div>
 		
