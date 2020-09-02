@@ -47,13 +47,20 @@ if (isset($msg)) {
                 <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
                 <div class="form-group col-lg-6">
                     <label>Usuario: *</label>
-                    <select id="fkIdUsuario" name="fkIdUsuario" class="form-control">
+                    <select id="lstUsuario" name="lstUsuario" class="form-control">
                     </select>
                 </div>
                 <div class="form-group col-lg-6">
                     <label>Sucursal: *</label>
-                    <select id="fkIdSucursal" name="fkIdSucursal" class="form-control" required>
-                        
+                    <select id="lstSucursal" name="lstSucursal" class="form-control" required>
+                    <option selected disabled value="">Seleccionar</option>
+                    @for ($i = 0; $i < count($array_sucursal); $i++)
+                     @if (isset($sucursal) and $array_sucursal[$i]->idsucursal == $producto->fk_idsucursal)
+                        <option selected value="{{ $array_sucursal[$i]->idsucursal}}">{{ $array_sucursal[$i]->direccion}}</option>
+                        @else
+                        <option value="{{ $array_sucursal[$i]->idsucursal }}">{{ $array_sucursal[$i]->direccion}}</option>
+                     @endif
+                   @endfor
                     </select>
                 </div>
                 <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>

@@ -13,14 +13,14 @@ class Sucursal extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'fk_iddireccion',
+        'direccion',
         'fk_idlocalidad', 
         'fk_idprovincia'
     ];
 
     function cargarDesdeRequest($request) {
         $this->idsucursal = $request->input('id')!="0" ? $request->input('id') : $this->idsucursal;
-        $this->fk_iddireccion = $request->input('lstDireccion');
+        $this->direccion = $request->input('lstDireccion');
         $this->fk_idlocalidad = $request->input('lstLocalidad');
         $this->fk_idprovincia = $request->input('lstProvincia');
 
@@ -30,7 +30,7 @@ class Sucursal extends Model
     public function obtenerTodos() {
         $sql = "SELECT 
                   A.idsucursal,
-                  A.fk_iddireccion,
+                  A.direccion,
                   A.fk_idlocalidad,
                   A.fk_idprovincia
                 FROM sucursales A ORDER BY idsucursal";
@@ -41,7 +41,7 @@ class Sucursal extends Model
     public function obtenerPorId($idsucursal) {
         $sql = "SELECT
                 idsucursal,
-                fk_iddireccion,
+                direccion,
                 fk_idlocalidad,
                 fk_idprovincia
                 FROM sucursales WHERE idsucursal = '$idsucursal'";
@@ -49,7 +49,7 @@ class Sucursal extends Model
 
         if(count($lstRetorno)>0){
             $this->idsucursal = $lstRetorno[0]->idsucursal;
-            $this->fk_iddireccion = $lstRetorno[0]->fk_iddireccion;
+            $this->direccion = $lstRetorno[0]->direccion;
             $this->fk_idlocalidad = $lstRetorno[0]->fk_idlocalidad;
             $this->fk_idprovincia = $lstRetorno[0]->fk_idprovincia;
             return $this;
@@ -59,7 +59,7 @@ class Sucursal extends Model
 
     public function guardar() {
         $sql = "UPDATE sucursales SET
-            fk_iddireccion='$this->fk_iddireccion',
+            direccion='$this->direccion',
             fk_idlocalidad='$this->fk_idlocalidad',
             fk_idprovincia='$this->fk_idprovincia',
             WHERE idsucursal=?";
@@ -74,11 +74,11 @@ class Sucursal extends Model
 
     public function insertar() {
         $sql = "INSERT INTO sucursales (
-                    fk_iddireccion,
+                    direccion,
                     fk_idlocalidad,
                     fk_idprovincia
                     ) VALUES (?, ?, ?);";
-        $result = DB::insert($sql, [$this->fk_iddireccion, $this->fk_idlocalidad, $this->fk_idprovincia]);
+        $result = DB::insert($sql, [$this->direccion, $this->fk_idlocalidad, $this->fk_idprovincia]);
         return $this->idsucursal = DB::getPdo()->lastInsertId();
     }
 
