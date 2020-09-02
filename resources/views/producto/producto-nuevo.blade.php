@@ -78,12 +78,12 @@ if (isset($msg)) {
             <div class="form-group col-lg-6">
                 <label>Sucursal</label>
                 <select name="lstSucursal" id="lstSucursal" class="form-control">
-                    <option selected value="0">-</option>
+                    <option selected disabled value="">Seleccionar</option>
                     @for ($i = 0; $i < count($array_sucursal); $i++)
                      @if (isset($sucursal) and $array_sucursal[$i]->idsucursal == $producto->fk_idsucursal)
-                        <option selected value="{{ $array_sucursal[$i]->idsucursal}}">[{{ $array_sucursal[$i]->direccion}}</option>
+                        <option selected value="{{ $array_sucursal[$i]->idsucursal}}">{{ $array_sucursal[$i]->direccion}}</option>
                         @else
-                        <option value="{{array_sucursal[$i]->idsucursal}">{{ $array_sucursal[$i]->direccion}}</option>
+                        <option value="{{ $array_sucursal[$i]->idsucursal }}">{{ $array_sucursal[$i]->direccion}}</option>
                      @endif
                    @endfor
                 </select>            
