@@ -88,6 +88,12 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/mediodepago/transferenciabancaria', 'ControladorTransferenciabancaria@nuevo');
 
 /* --------------------------------------------- */
+/* CONTROLADOR MERCADO PAGO           */
+/* --------------------------------------------- */
+    Route::get('/admin/mediodepago/mercadopago', 'ControladorMercadopago@nuevo');
+
+
+/* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                        */
 /* --------------------------------------------- */
     Route::get('/admin/categoria/nuevo','ControladorCategoria@nuevo');
