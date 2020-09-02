@@ -11,6 +11,10 @@ class ControladorCliente extends Controller
         $titulo = "Nuevo cliente";
         return view('cliente.cliente-nuevo', compact('titulo'));
     }
+    public function index(){
+        $titulo = "Listado de Clientes";
+        return view('cliente.cliente-listado', compact('titulo'));
+    }
 
 }
 

@@ -123,5 +123,6 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR CLIENTE                           */
 /* --------------------------------------------- */
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+    Route::get('/admin/clientes','ControladorCliente@index');
 
 });
