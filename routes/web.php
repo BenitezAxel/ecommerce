@@ -103,6 +103,9 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR INCIDENTE                         */
 /* --------------------------------------------- */
     Route::get('/admin/incidente/nuevo', 'ControladorIncidente@nuevo');
+    Route::get('/admin/incidentes', 'ControladorIncidente@index');
+
+
 
 /* --------------------------------------------- */
 /* CONTROLADOR SUCURSAL                          */

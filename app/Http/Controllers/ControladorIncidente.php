@@ -11,5 +11,11 @@ class ControladorIncidente extends Controller
         $titulo = "Nuevo incidente";
         return view('incidente.incidente-nuevo', compact('titulo'));
     }
+    public function index()
+    {
+        $titulo = "Listado de Incidentes";
+        return view('incidente.incidente-index', compact('titulo'));
+    }
+
 
 }
