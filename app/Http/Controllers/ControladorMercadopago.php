@@ -13,7 +13,7 @@ class ControladorMercadopago extends Controller{
 
    public function nuevo(){
 
-       $titulo = "Metodo Mercado Pago";  
+       $titulo = "Metodo Mercado Pago";
        return view('mercadopago.mercadopago', compact('titulo'));   
    }
  }
