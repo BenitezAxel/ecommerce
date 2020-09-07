@@ -91,7 +91,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR MERCADO PAGO           */
 /* --------------------------------------------- */
     Route::get('/admin/mediodepago/mercadopago', 'ControladorMercadopago@nuevo');
-
+    Route::post('/admin/mediodepago/mercadopago', 'ControladorMercadopago@guardar');
 
 /* --------------------------------------------- */
 /* CONTROLADOR CATEGORÍAS                        */
