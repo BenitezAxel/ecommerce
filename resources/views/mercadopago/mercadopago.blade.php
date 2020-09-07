@@ -1,6 +1,12 @@
 @extends('plantilla')
 @section('titulo', "$titulo")
+@section('scripts')
+<script>
+    globalId = '<?php echo isset($menu->idmenu) && $menu->idmenu > 0 ? $menu->idmenu : 0; ?>';
+    <?php $globalId = isset($menu->idmenu) ? $menu->idmenu : "0"; ?>
 
+</script>
+@endsection
 @section('breadcrumb')
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/admin/home">Inicio</a></li>
@@ -82,5 +88,40 @@ if (isset($msg)) {
         </div>
       </div>
     </div>
+<script>
 
+    $("#form1").validate();
+
+    function guardar() {
+        if ($("#form1").valid()) {
+            modificado = false;
+            form1.submit(); 
+        } else {
+            $("#modalGuardar").modal('toggle');
+            msgShow("Corrija los errores e intente nuevamente.", "danger");
+            return false;
+        }
+    }
+
+    function eliminar() {
+        $.ajax({
+            type: "GET",
+            url: "{{ asset('admin/sistema/menu/eliminar') }}",
+            data: { id:globalId },
+            async: true,
+            dataType: "json",
+            success: function (data) {
+                if (data.err = "0") {
+                    msgShow("Registro eliminado exitosamente.", "success");
+                    $("#btnEnviar").hide();
+                    $("#btnEliminar").hide();
+                    $('#mdlEliminar').modal('toggle');
+                } else {
+                    msgShow("Error al eliminar", "success");
+                }
+            }
+        });
+    }
+
+</script>
 @endsection
