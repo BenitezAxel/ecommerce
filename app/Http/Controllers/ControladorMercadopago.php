@@ -14,8 +14,6 @@ class ControladorMercadopago extends Controller{
    public function nuevo(){
 
        $titulo = "Metodo Mercado Pago";  
-       $mercadopago = new Medio_pago();
-    $array_mediodepago= $mercadopago->obtenerTodos(); 
        return view('mercadopago.mercadopago', compact('titulo'));   
    }
  }
