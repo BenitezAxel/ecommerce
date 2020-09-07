@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entidades\Medio_pago;
+use Exception;
 
- 
 require app_path().'/start/constants.php';
 use Session;
  
@@ -18,8 +18,9 @@ class ControladorMercadopago extends Controller{
         $array_mediodepago = $mediodepago->obtenerTodos();   
        return view('mercadopago.mercadopago', compact('titulo'));   
    }
-   public function guardar($request){
-       $titulo = "Mercado Pago";
+   public function guardar(request $request){
+    try{   
+    $titulo = "Mercado Pago";
        $entidadMediopago = new Medio_pago();
        $entidadMediopago->cargarDesdeRequest($request);
 
@@ -32,6 +33,9 @@ class ControladorMercadopago extends Controller{
             $entidadMediopago->insertar();
         }
        }
+    } catch(Exception $e){
+        
+    }
    }
 
 }
